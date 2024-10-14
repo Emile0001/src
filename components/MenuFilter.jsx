@@ -1,13 +1,13 @@
-export const MenuFilter = ({ menuData }) => {
-    const allCategories = [
-        "all",
-        ...new Set(menuData.map((menuCat) => menuCat.category)),
-    ];
-    console.log(allCategories);
-
+export const MenuFilter = ({ categories }) => {
     return (
-        <div>
-            <button>kykk</button>
+        <div className="btn-container">
+            {categories.map((category) => {
+                return (
+                    <button type="button" className="btn" key={category}>
+                        {category}
+                    </button>
+                );
+            })}
         </div>
     );
 };

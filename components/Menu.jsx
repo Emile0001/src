@@ -1,9 +1,9 @@
 import { MenuItems } from "./MenuItems";
 
-export const Menu = ({ menuData }) => {
+export const Menu = ({ menuItems }) => {
     return (
         <section>
-            {menuData.map((menuItem) => {
+            {menuItems.map((menuItem) => {
                 return <MenuItems key={menuItem.id} {...menuItem} />;
             })}
         </section>
