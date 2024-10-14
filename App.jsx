@@ -13,13 +13,22 @@ let arrayCategories = Array.from(allCategories);
 const App = () => {
     const [menuItems, setMenuItems] = useState(menuData);
     const [categories, setCategories] = useState(arrayCategories);
+    const filterItems = (category) => {
+        if (category === "all") {
+            setMenuItems(menuData);
+            return;
+        }
+        const newItems = menuData.filter((item) => item.category === category);
+        setMenuItems(newItems);
+    };
+
     return (
         <main>
             <section>
                 <Title title={"our menu"} />
             </section>
             <section>
-                <MenuFilter categories={categories} />
+                <MenuFilter categories={categories} filterItems={filterItems} />
             </section>
             <article>
                 <Menu menuItems={menuItems} />
